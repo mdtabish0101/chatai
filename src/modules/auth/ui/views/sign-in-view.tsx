@@ -4,7 +4,7 @@ import { email, z } from "zod";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input";
@@ -13,6 +13,7 @@ import { Alert, AlertTitle } from "@/components/ui/alert";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { OctagonAlertIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 
 
@@ -46,10 +47,31 @@ export const SignInView = () => {
             {
                 email: data.email,
                 password: data.password,
+                callbackURL:"/"
             },
             {
                 onSuccess: () => {
-                    router.push("/")
+                    setPending(false);
+                    router.push("/");
+                },
+                onError: ({ error }) => {
+                    setError(error.message)
+                    setPending(false)
+                }
+            }
+
+        )
+    }
+    const onSocial = (provider:"google"|"github") => {
+        setError(null);
+        setPending(true);
+        authClient.signIn.social(
+            {
+                provider:provider,
+                callbackURL:"/"
+            },
+            {
+                onSuccess: () => {
                     setPending(false)
                 },
                 onError: ({ error }) => {
@@ -124,8 +146,8 @@ export const SignInView = () => {
                                     </span>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
-                                    <Button variant={"outline"} type="button" className="w-full">Google</Button>
-                                    <Button variant={"outline"} type="button" className="w-full">Github</Button>
+                                <Button variant={"outline"} type="button" className="w-full" onClick={()=>{onSocial("google")}}><FaGoogle/></Button>
+                                <Button variant={"outline"} type="button" className="w-full"onClick={()=>{onSocial("github")}}><FaGithub/></Button>
                                 </div>
                                 <div className="text-center text-sm">
                                     Don&apos;t have an account?{" "}

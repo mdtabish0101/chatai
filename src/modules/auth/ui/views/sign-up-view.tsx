@@ -1,10 +1,10 @@
 "use client";
 
-import { email, z } from "zod";
+import { z } from "zod";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input";
@@ -13,6 +13,7 @@ import { Alert, AlertTitle } from "@/components/ui/alert";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { OctagonAlertIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
     name: z.string().min(1, { message: "Name is required" }),
@@ -48,11 +49,32 @@ export const SignUpView = () => {
                 name: data.name,
                 email: data.email,
                 password: data.password,
+                callbackURL:"/"
             },
             {
                 onSuccess: () => {
-                    router.push("/")
+                    setPending(false);
+                    router.push("/");
+                },
+                onError: ({ error }) => {
+                    setError(error.message)
                     setPending(false)
+                }
+            }
+
+        )
+    }
+    const onSocial = (provider:"google"|"github") => {
+        setError(null);
+        setPending(true);
+        authClient.signIn.social(
+            {
+                provider:provider,
+                callbackURL:"/"
+            },
+            {
+                onSuccess: () => {
+                    setPending(false);
                 },
                 onError: ({ error }) => {
                     setError(error.message)
@@ -150,7 +172,7 @@ export const SignUpView = () => {
                                 )}
 
                                 <Button className="w-full bg-main3" type="submit" disabled={pending}>
-                                    Sign In
+                                    Sign Up
                                 </Button>
                                 <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                                     <span className="bg-card text-muted-foreground relative z-10 px-2">
@@ -158,8 +180,8 @@ export const SignUpView = () => {
                                     </span>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
-                                    <Button variant={"outline"} type="button" className="w-full">Google</Button>
-                                    <Button variant={"outline"} type="button" className="w-full">Github</Button>
+                                <Button variant={"outline"} type="button" className="w-full" onClick={()=>{onSocial("google")}}><FaGoogle /></Button>
+                                <Button variant={"outline"} type="button" className="w-full"onClick={()=>{onSocial("github")}}><FaGithub /></Button>
                                 </div>
                                 <div className="text-center text-sm">
                                     have an account?{" "}
