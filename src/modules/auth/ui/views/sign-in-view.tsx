@@ -137,7 +137,7 @@ export const SignInView = () => {
                                     </Alert>
                                 )}
 
-                                <Button className="w-full bg-main3" type="submit" disabled={pending}>
+                                <Button className="w-full" type="submit" disabled={pending}>
                                     Sign In
                                 </Button>
                                 <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
