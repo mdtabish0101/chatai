@@ -16,6 +16,7 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
+  --color-navbar: var(--navbar);
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
@@ -84,6 +85,16 @@
   --sidebar-border: oklch(0.9 0.01 255);
   --sidebar-ring: oklch(0.6 0.12 185);
   --sidebar-accent-hover: oklch(0.88 0.06 185);
+  /* Navbar */
+  --navbar: oklch(0.98 0.01 255);
+  --navbar-foreground: oklch(0.08 0.02 240);
+  --navbar-primary: oklch(0.6 0.12 185);
+  --navbar-primary-foreground: oklch(1 0 0);
+  --navbar-accent: oklch(0.9 0.05 185);
+  --navbar-accent-foreground: oklch(0.4 0.1 185);
+  --navbar-border: oklch(0.9 0.01 255);
+  --navbar-ring: oklch(0.6 0.12 185);
+  --navbar-accent-hover: oklch(0.88 0.06 185);
 }
 
 .dark {
@@ -120,6 +131,16 @@
   --sidebar-border: oklch(0.2 0.02 255);
   --sidebar-ring: oklch(0.6 0.12 185);
   --sidebar-accent-hover: oklch(0.22 0.03 255);
+    /* Navbar */
+    --navbar: oklch(0.10 0.03 250);
+    --navbar-foreground: oklch(0.98 0.01 255);
+    --navbar-primary: oklch(0.6 0.12 185);
+    --navbar-primary-foreground: oklch(0.05 0.02 255);
+    --navbar-accent: oklch(0.2 0.02 255);
+    --navbar-accent-foreground: oklch(0.8 0.08 185);
+    --navbar-border: oklch(0.2 0.02 255);
+    --navbar-ring: oklch(0.6 0.12 185);
+    --navbar-accent-hover: oklch(0.22 0.03 255);
 }
 
 @layer base {
