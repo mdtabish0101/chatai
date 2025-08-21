@@ -21,14 +21,14 @@ export const AgentView = () => {
 
 export const AgentsViewLoading = () => {
     return (
-        <LoadingState title="Agents Loading" 
-        description="This may take a while" />
+        <LoadingState title="Agents Loading"
+            description="This may take a while" />
     )
 }
 
-export const ErrorPage = () =>{
-    return(
+export const ErrorPage = () => {
+    return (
         <ErrorState title="Error Loading Agents"
-        description="Something went wrong, Please try again later" />
+            description="Something went wrong, Please try again later" />
     )
 }
