@@ -3,7 +3,7 @@ import { createAvatar } from "@dicebear/core";
 import { bottts, initials } from "@dicebear/collection";
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import { number } from "zod";
+
 
 interface GeneratedAvatarProps {
   seed: string;

@@ -53,6 +53,7 @@ export const agents = pgTable("agents", {
 		.primaryKey()
 		.$defaultFn(()=> nanoid()),
 	name: text("name").notNull(),
+	instructions: text("instructions").notNull(),
 	userId: text("user_id")
 		.notNull()
 		.references(()=>user.id, { onDelete: "cascade"}),
