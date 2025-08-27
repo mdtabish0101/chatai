@@ -8,9 +8,10 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 export const MeetingsView = () =>{
     const trpc = useTRPC()
     const { data } = useSuspenseQuery(trpc.meetings.getMany.queryOptions({}));
+    console.log(data);
     return(
-        <div>
-            {JSON.stringify(data)}
+        <div className="overflow-x-scroll">
+            {/* {JSON.stringify(data)} */}
         </div>
     )
 };
