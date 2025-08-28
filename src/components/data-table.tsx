@@ -8,7 +8,7 @@ import {
 } from "@tanstack/react-table"
 
 import {
-    Table,
+    Table, 
     TableBody,
     TableCell,
     TableRow,
