@@ -30,7 +30,10 @@ export const CommandSelect = ({
 }: Props) => {
     const [open, setOpen] = useState(false);
     const selectedOption = options.find((option) => option.value === value);
-
+    const handleOpenCHange = (open: boolean) => {
+        onSearch?.("");
+        setOpen(open);
+    };
     return (
         <>
             <Button
@@ -38,7 +41,7 @@ export const CommandSelect = ({
                 type="button"
                 variant="outline"
                 className={cn(
-                    "h-9 justify-between font-normal px-2",
+                    "h-9 justify-between font-normal px-2 hover:bg-white/80",
                     !selectedOption && "text-muted-foreground",
                     className
                 )}>
@@ -50,7 +53,7 @@ export const CommandSelect = ({
             <CommandResponsiveDialog
             shouldFilter={!onSearch}
                 open={open}
-                onOpenChange={setOpen}>
+                onOpenChange={handleOpenCHange}>
 
                 <CommandInput placeholder="Search..." onValueChange={onSearch} />
                 <CommandList>
