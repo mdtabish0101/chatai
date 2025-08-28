@@ -4,24 +4,24 @@ import { MeetingGetOne } from "../../types";
 
 
 
-interface UpdateAgentDialogProps{
-    open:boolean,
+interface UpdateMeetingDialogProps {
+    open: boolean,
     onOpenChange: (open: boolean) => void
     initialValues: MeetingGetOne;
 }
 
 
-export const UpdateAgentDialog = ({open, onOpenChange, initialValues}: UpdateAgentDialogProps) => {
-    return(
-        <ResponsiveDialog 
-        title="Update Agent"
-        description="Update the agent"
-        open={open}
-        onOpenChange={onOpenChange}>
+export const UpdateMeetingDialog = ({ open, onOpenChange, initialValues }: UpdateMeetingDialogProps) => {
+    return (
+        <ResponsiveDialog
+            title="Edit Meeting"
+            description="Edit the meeting details"
+            open={open}
+            onOpenChange={onOpenChange}>
             <MeetingForm
-            onSuccess={() => onOpenChange(false)}
-            onCancel={() => onOpenChange(false)}
-            initialValues={initialValues}/>
+                onSuccess={() => onOpenChange(false)}
+                onCancel={() => onOpenChange(false)}
+                initialValues={initialValues} />
         </ResponsiveDialog>
     );
 };
