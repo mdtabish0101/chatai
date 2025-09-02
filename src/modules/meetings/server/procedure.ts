@@ -84,13 +84,12 @@ export const meetingsRouter = createTRPCRouter({
                     userId: ctx.auth.user.id,
                 })
                 .returning();
-            // TODO: Create Stream call, upsert Stream users
             const call = streamVideo.video.call("default", createdMeeting.id);
             await call.create({
                 data:{
                     created_by_id: ctx.auth.user.id,
                     custom:{
-                        meeetingId: createdMeeting.id,
+                        meetingId: createdMeeting.id,
                         meetingName: createdMeeting.name
                     },
                     settings_override: {
