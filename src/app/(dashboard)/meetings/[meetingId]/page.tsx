@@ -13,13 +13,13 @@ interface Props {
     }>;
 }
 
-const Page = async ( {params}: Props ) => {
+const Page = async ({ params }: Props) => {
     const { meetingId } = await params;
     const session = await auth.api.getSession({
         headers: await headers(),
     });
 
-    if(!session){
+    if (!session) {
         redirect("/Sign-in")
     }
 
@@ -30,13 +30,15 @@ const Page = async ( {params}: Props ) => {
     // TODO: Prefetch `meetings.getTranscript`
 
     return (
+
         <HydrationBoundary state={dehydrate(queryClient)}>
-           <Suspense fallback={<MeetingIdViewLoading/>}>
-            <ErrorBoundary fallback={<MeetingIdViewErrorPage/>}>
-                <MeetingIdView meetingId={meetingId}/>
-            </ErrorBoundary>
-           </Suspense>
+            <Suspense fallback={<MeetingIdViewLoading />}>
+                <ErrorBoundary fallback={<MeetingIdViewErrorPage />}>
+                    <MeetingIdView meetingId={meetingId} />
+                </ErrorBoundary>
+            </Suspense>
         </HydrationBoundary>
+
     )
 }
 
