@@ -5,7 +5,6 @@ import { MeetingGetMany } from "../../types"
 import { GeneratedAvatar } from "@/components/generated-avatar"
 import { Badge } from "@/components/ui/badge"
 import {
-  VideoIcon,
   CircleCheckIcon,
   CircleXIcon,
   ClockArrowUpIcon,

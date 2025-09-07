@@ -2,7 +2,6 @@ import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 import { useMeetingsFilters } from "../../hooks/use-meetings-filters";
 
-useMeetingsFilters
 
 export const MeetingsSearchFilters = () =>{
     const [filters, setFilters] = useMeetingsFilters();

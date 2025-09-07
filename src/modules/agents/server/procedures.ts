@@ -1,9 +1,9 @@
 import { db } from "@/db";
 import { z } from "zod";
-import { agents } from "@/db/schema";
+import { agents, meetings } from "@/db/schema";
 import { createTRPCRouter, premiumProcedure, protectedProcedure } from "@/trpc/init";
 import { agentsInsertSchema, agentsUpdateSchema } from "../schema";
-import { and, count, desc, eq, getTableColumns, ilike, sql } from "drizzle-orm";
+import { and, count, desc, eq, getTableColumns, ilike } from "drizzle-orm";
 import { DEFAULT_PAGE, DEFUALT_PAGE_SIZE, MAX_PAGE_SIZE, MIN_PAGE_SIZE } from "@/constants";
 import { TRPCError } from "@trpc/server";
 
@@ -56,9 +56,8 @@ export const agentRouter = createTRPCRouter({
         .query(async ({ input, ctx }) => {
             const [exsistingAgent] = await db
                 .select({
-                    meetingCount: sql<number>`5`,
                     ...getTableColumns(agents),
-                    //TODO: Change to actual meeting count
+                    meetingCount: db.$count(meetings, eq(agents.id, meetings.agentId)),
                 })
                 .from(agents)
                 .where(
@@ -88,8 +87,7 @@ export const agentRouter = createTRPCRouter({
             const data = await db
                 .select({
                     ...getTableColumns(agents),
-
-                    meetingCount: sql<number>`5`
+                    meetingCount: db.$count(meetings, eq(agents.id, meetings.agentId)),
                 })
                 .from(agents)
                 .where(

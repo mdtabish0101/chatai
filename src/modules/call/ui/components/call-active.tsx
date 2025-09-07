@@ -1,5 +1,4 @@
 import { CallControls, SpeakerLayout } from "@stream-io/video-react-sdk";
-import { on } from "events";
 import Image from "next/image";
 import Link from "next/link";
 

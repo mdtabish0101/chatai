@@ -5,7 +5,6 @@ import { useMutation } from "@tanstack/react-query";
 import {
     Call,
     CallingState,
-    CallState,
     StreamCall,
     StreamVideo,
     StreamVideoClient,
