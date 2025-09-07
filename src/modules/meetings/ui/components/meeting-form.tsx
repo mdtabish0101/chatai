@@ -13,6 +13,7 @@ import { MeetingGetOne } from "../../types";
 import { CommandSelect } from "@/components/command-select";
 import { GeneratedAvatar } from "@/components/generated-avatar";
 import { NewAgentDialog } from "@/modules/agents/ui/components/new-agent-dialog";
+import { useRouter } from "next/navigation";
 
 
 
@@ -25,7 +26,7 @@ interface MeetingFormProps {
 export const MeetingForm = ({ onSuccess, onCancel, initialValues }: MeetingFormProps) => {
     const trpc = useTRPC();
     const queryClient = useQueryClient();
-
+    const router = useRouter();
     const [openNewAgentDialog, setOpenNewAgentDialog] = useState(false);
     const [agentSearch, setAgentSearch] = useState("");
 
@@ -45,12 +46,18 @@ export const MeetingForm = ({ onSuccess, onCancel, initialValues }: MeetingFormP
                 await queryClient.invalidateQueries(
                     trpc.meetings.getMany.queryOptions({}),
                 );
-                // TODO: Invalidate free tier usage
+
+                await queryClient.invalidateQueries(
+                    trpc.premium.getFreeUsage.queryOptions(),
+                );
+
                 onSuccess?.(data.id);
             },
             onError: (error) => {
                 toast.error(error.message);
-                // TODO: Check if error code is "FORBIDDEN", redirect to "/upgrade"
+                if(error.data?.code === "FORBIDDEN"){
+                    router.push("/upgrade");
+                }
             },
         }),
     );
@@ -70,7 +77,6 @@ export const MeetingForm = ({ onSuccess, onCancel, initialValues }: MeetingFormP
             },
             onError: (error) => {
                 toast.error(error.message);
-                // TODO: Check if error code is "FORBIDDEN", redirect to "/upgrade"
             },
         }),
     );
@@ -96,7 +102,7 @@ export const MeetingForm = ({ onSuccess, onCancel, initialValues }: MeetingFormP
 
     return (
         <>
-        <NewAgentDialog open={openNewAgentDialog} onOpenChange={setOpenNewAgentDialog}/>
+            <NewAgentDialog open={openNewAgentDialog} onOpenChange={setOpenNewAgentDialog} />
             <Form {...form}>
                 <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
                     <FormField
