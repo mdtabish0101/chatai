@@ -15,7 +15,6 @@ import {
 } from "stream-chat-react";
 
 import "stream-chat-react/dist/css/v2/index.css";
-import { StringValidation } from "zod";
 
 interface ChatUIProps {
     meetingId: string;
