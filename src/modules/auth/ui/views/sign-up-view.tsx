@@ -86,7 +86,7 @@ export const SignUpView = () => {
     }
 
     return (
-        <div className="flex flex-col gap-6 bg-main1">
+        <div className="flex flex-col gap-6 bg-muted">
             <Card className="overflow-hidden p-0">
                 <CardContent className="grid p-0 md:grid-cols-2">
                     <Form {...form}>
@@ -176,7 +176,7 @@ export const SignUpView = () => {
                                 </Button>
                                 <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
                                     <span className="bg-card text-muted-foreground relative z-10 px-2">
-                                        Or Continuew with
+                                        Or Continue with
                                     </span>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
@@ -190,16 +190,16 @@ export const SignUpView = () => {
                             </div>
                         </form>
                     </Form>
-                    <div className="bg-radial from-main2 to-main3 relative hidden md:flex flex-col gap-y-4 items-center justify-center">
-                        <img src="/logo.svg" alt="iamge" className="h-[92px] w-[92px] pt-5" />
-                        <p className="text-rxl font-semibold text-main1 ">
-                            Chat-Ai
+                    <div className="bg-radial from-[#92604d] to-main3 relative hidden md:flex flex-col gap-y-4 items-center justify-center">
+                        <img src="/logo2.svg" alt="iamge" className="h-[92px] w-[92px] pt-5" />
+                        <p className="text-xl font-semibold text-main2 ">
+                            Chat-AI
                         </p>
                     </div>
                 </CardContent>
             </Card>
 
-            <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
+            <div className="text-secondary *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
                 By Clicking continue, you agree to our <a href="#">Terms of service</a> and <a href="#">Privacy</a>
             </div>
         </div>

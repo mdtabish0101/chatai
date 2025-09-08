@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export const HomeView = () => {
   return (
-    <div className="bg-gray-50/90 h-full">
+    <div className="bg-primary/10 h-full">
       <div className="container mx-auto px-4 py-16 text-center">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900">
           ChatAI – Talk Face-to-Face with AI
@@ -17,7 +17,7 @@ export const HomeView = () => {
           “Instant answers, smarter conversations — all through live video calls with AI.”
         </p>
         <div className="mt-8">
-          <Button asChild size="lg" className="bg-primary hover:bg-sidebar-accent-foreground text-white">
+          <Button asChild size="lg" className="bg-primary/80 hover:bg-primary text-white">
             <Link href="/Sign-up">Sign up for Free</Link>
           </Button>
         </div>

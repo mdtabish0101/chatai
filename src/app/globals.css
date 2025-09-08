@@ -44,7 +44,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 @theme{
-  /* --color-main1: var(--muted); */
+  --color-main1: var(--muted);
   --color-main2: oklch(0.9914 0.0098 87.47);
   --color-main3: oklch(0.1919 0.0481 26.89);
 }
