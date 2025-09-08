@@ -6,7 +6,7 @@
 
 ## Introduction
 
-MeetAI is a modern, AI-powered video conferencing and chat application designed for seamless communication and collaboration. It leverages a powerful tech stack to provide real-time interactions, intelligent agent assistance, and a smooth user experience.
+ChatAI is a modern, AI-powered video conferencing and chat application designed for seamless communication and collaboration. It leverages a powerful tech stack to provide real-time interactions, intelligent agent assistance, and a smooth user experience.
 
 ---
 
@@ -49,11 +49,11 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1.  Clone the repository:
     ```sh
-    git clone https://github.com/your-username/meetai.git
+    git clone https://github.com/mdtabish0101/chatai.git
     ```
 2.  Navigate to the project directory:
     ```sh
-    cd meetai
+    cd chatai
     ```
 3.  Install the dependencies:
     ```sh
