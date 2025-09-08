@@ -1,4 +1,4 @@
-# MeetAI
+# ChatAI
 
 ![Logo](public/logo.svg)
 
