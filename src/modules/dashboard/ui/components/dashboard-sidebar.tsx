@@ -35,23 +35,23 @@ export const DashboardSidebar = () => {
 
     return (
         <Sidebar>
-            <SidebarHeader className="text-sidebar-accent-foreground">
+            <SidebarHeader className="text-main2">
                 <Link href="/" className="flex items-center gap-2 px-2 pt-2">
                     <Image src="/logo2.svg" height={38} width={38} alt="ChatAI" />
                     <p className="text-2xl font-semibold">ChatAI</p>
                 </Link>
             </SidebarHeader>
             <div className="px-4 py-2">
-            <Separator className="bg-[#00978a]/25" />
+            <Separator className="bg-border" />
             </div>
             <SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupContent>
-                        <SidebarMenu>
+                        <SidebarMenu className="text-main2">
                             {firstSection.map((item) => (
                                 <SidebarMenuItem key={item.href}>
                                     <SidebarMenuButton asChild className={cn(
-                                        "h-10 hover:bg-linear-to-r/oklch border border-transparent from-sidebar-accent-hover from-5% via-30% via-sidebar/10 to-sidebar/80",
+                                        "h-10 hover:bg-linear-to-r/oklch border border-transparent sidebar-accent-hover/90",
                                         pathname === item.href && "bg-linear-to-r/oklch"
                                     )}
                                         isActive={pathname === item.href}
@@ -69,15 +69,15 @@ export const DashboardSidebar = () => {
                     </SidebarGroupContent>
                 </SidebarGroup>
                 <div className="px-4 py-2">
-                <Separator className="bg-[#00978a]/25" />
+                <Separator className="bg-border" />
                 </div>
                 <SidebarGroup>
                     <SidebarGroupContent>
-                        <SidebarMenu>
+                        <SidebarMenu className="text-main2">
                             {secondSection.map((item) => (
                                 <SidebarMenuItem key={item.href}>
                                     <SidebarMenuButton asChild className={cn(
-                                        "h-10 hover:bg-linear-to-r/oklch border border-transparent from-sidebar-accent-hover from-5% via-30% via-sidebar/10 to-sidebar/80",
+                                        "h-10 hover:bg-linear-to-r/oklch border border-transparent sidebar-accent-hover",
                                         pathname === item.href && "bg-linear-to-r/oklch"
                                     )}
                                         isActive={pathname === item.href}
@@ -95,7 +95,7 @@ export const DashboardSidebar = () => {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
-            <SidebarFooter className="text-black">
+            <SidebarFooter className="text-main3">
                 
                 <DashboardTrial />
                 <DashboardUserButton/>
@@ -103,4 +103,4 @@ export const DashboardSidebar = () => {
             </SidebarFooter>
         </Sidebar>
     )
-} 
+}

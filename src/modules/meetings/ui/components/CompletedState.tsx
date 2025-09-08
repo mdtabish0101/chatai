@@ -17,32 +17,32 @@ interface Props {
 
 export const CompletedState = ({ data }: Props) => {
     return (
-        <div className="flex flex-col gap-y-4 flex-1">
+        <div className="flex flex-col gap-y-4 flex-1 h-full">
             <Tabs defaultValue="summary" className="flex-1 flex flex-col">
-                <div className="bg-white rounded-lg border px-3">
+                <div className="bg-main2 rounded-lg border px-3">
                     <ScrollArea>
-                        <TabsList className="p-0 bg-background justify-start rounded-none h-13">
+                        <TabsList className="p-0 bg-main2 justify-start rounded-none h-13">
                             <TabsTrigger
                                 value="summary"
-                                className="text-muted-foreground rounded-none bg-background data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-primary data-[state=ative]:text-accent-foreground h-full hover:text-accent-foreground">
+                                className="text-muted-foreground rounded-none hover:bg-background data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-primary data-[state=ative]:text-accent-foreground h-full hover:text-border">
                                 <BookOpenTextIcon />
                                 summary
                             </TabsTrigger>
                             <TabsTrigger
                                 value="transcript"
-                                className="text-muted-foreground rounded-none bg-background data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-primary data-[state=ative]:text-accent-foreground h-full hover:text-accent-foreground">
+                                className="text-muted-foreground rounded-none hover:bg-background data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-primary data-[state=ative]:text-accent-foreground h-full hover:text-border">
                                 <FileTextIcon />
                                 transcript
                             </TabsTrigger>
                             <TabsTrigger
                                 value="recording"
-                                className="text-muted-foreground rounded-none bg-background data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-primary data-[state=ative]:text-accent-foreground h-full hover:text-accent-foreground">
+                                className="text-muted-foreground rounded-none hover:bg-background data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-primary data-[state=ative]:text-accent-foreground h-full hover:text-border">
                                 <FileVideoIcon />
                                 recording
                             </TabsTrigger>
                             <TabsTrigger
                                 value="chat"
-                                className="text-muted-foreground rounded-none bg-background data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-primary data-[state=ative]:text-accent-foreground h-full hover:text-accent-foreground">
+                                className="text-muted-foreground rounded-none hover:bg-background data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-b-primary data-[state=ative]:text-accent-foreground h-full hover:text-border">
                                 <SparklesIcon />
                                 Ask AI
                             </TabsTrigger>

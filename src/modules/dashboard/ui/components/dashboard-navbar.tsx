@@ -6,6 +6,7 @@ import { PanelLeftClose, PanelLeftIcon, SearchIcon } from "lucide-react";
 import { DashboardCommand } from "./dashboard-command";
 import { useEffect, useState } from "react";
 
+
 export const DashboardNavbar = () => {
     const { state, toggleSidebar, isMobile } = useSidebar();
     const [commandOpen, setCommandOpen] = useState(false);
@@ -24,7 +25,7 @@ export const DashboardNavbar = () => {
     return (
         <>
             <DashboardCommand open={commandOpen} setOpen={setCommandOpen}/>
-            <nav className="flex px-3 py-3 gap-x-4 items-center border-b bg-white">
+            <nav className="flex px-3 py-3 gap-x-4 items-center border-b bg-navbar/70">
                 <Button className="size-9 border-none" variant="outline" onClick={toggleSidebar}>
                     {(state === "collapsed" || isMobile) ?
                         <PanelLeftIcon className="size-4" /> : <PanelLeftClose className="size-4" />}
@@ -32,12 +33,13 @@ export const DashboardNavbar = () => {
                 <Button className="h-9 w-[240px] justify-start font-normal text-muted-foreground " variant="outline" size="sm" onClick={() => setCommandOpen((open) => !open)}>
                     <SearchIcon />
                     Search
-                    <kbd className="ml-auto pointer-events-none inline-flex ho5 select-none items-center gap-1 rounded bg-muted px-1.5 font-mono font-normal text-muted-foreground">
+                    <kbd className="ml-auto pointer-events-none inline-flex ho5 select-none items-center gap-1 rounded bg-muted px-1.5 font-mono font-normal text-main2">
                         <span>
                             CTRL
                         </span>K
                     </kbd>
                 </Button>
+ 
             </nav>
         </>
     )

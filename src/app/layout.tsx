@@ -4,6 +4,8 @@ import { NuqsAdapter } from "nuqs/adapters/next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { TRPCReactProvider } from "@/trpc/client";
+
+
 const interSans = Inter({
   subsets: ["latin"],
 });
@@ -22,12 +24,14 @@ export default function RootLayout({
   return (
     <NuqsAdapter>
       <TRPCReactProvider>
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
           <body
             className={`${interSans.className} antialiased`}
           >
+
             <Toaster />
             {children}
+
           </body>
         </html>
       </TRPCReactProvider>
