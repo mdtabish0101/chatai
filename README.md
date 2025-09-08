@@ -1,6 +1,6 @@
 # ChatAI
 
-![Logo](public/logo.svg)
+![Logo](public/logo2.svg)
 
 ---
 
